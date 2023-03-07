@@ -89,10 +89,6 @@
                 </li>
                 <li>
                   <span class="ion-pricetag"></span>
-                  <a href="#">Image Processing</a>
-                </li>
-                <li>
-                  <span class="ion-pricetag"></span>
                   <a href="#">3D Processing</a>
                 </li>
                 <li>
@@ -106,149 +102,77 @@
                 3DF-Zepyhr adalah salah satu aplikasi untuk melakukan rekonstruksi 3D pada suatu objek yang diambil dari multi angle.
                 Aplikasi ini terdapat fitur berbayar dan tidak berbayar. Disini saya menggunakan fitur yang tidak berbayar. Anda bisa
                 mengunduh aplikasi tersebut pada web resmi
-                <a href="#" title="Go to Web Official 3DF-Zepyhr">3DF-Zepyhr.</a>
+                <a href="https://www.3dflow.net/3df-zephyr-photogrammetry-software/" title="Go to Web Official 3DF-Zepyhr">3DF-Zepyhr.</a>
                 Saya disini akan memberikan tutorial cara menggunakan 3DF-Zepyhr dari foto kaki yang diambil dari beberapa angle kamera. Berikut adalah langkah
                 - langkahnya:
               </p>
               <p>
-                1. Add Library Board:
-                <p> Dengan cara pilih File kemudia ambil Preferences. Seperti gambar berikut:</p>
-                <p><img src="img/artikel_1/img_1.jpg"></p>
-                <p>Kemudian tambahkan link berikut: <a href="https://github.com/SutoSS/Burning-IC-Attiny-13A/blob/main/README.md" title="Go to GitHub section">Visit GitHub</a></p>
-                <p>Seperti pada gambar berikut:</p>
-                <p><img src="img/artikel_1/img_2.jpg"></p>
-                <p>Kemudian klik OK.</p>
+                1. Masuk ke aplikasi 3DF Zephyr
               </p>
               <p>
-                2. Install Board Attiny 13A
-                <p>Pertama adalah pilih menu Tools, kemudian pilih Board, dan kemudian pilih Board Manager.</p>
-                <p><img src="img/artikel_1/img_3.jpg"></p>
-                <p>Setelah itu pilih board manager ketik DIY dan kemudian pilih DIY ATtiny.</p>
-                <p><img src="img/artikel_1/img_4.jpg"></p>
+                2. Memasukkan foto multi angle ke 3DF-Zepyhr
+                <p>Drag foto yang ingin digunakan untuk rekonstruksi 3D seperti gambar berikut:</p>
+                <p><img src="img/artikel_2/img_1.jpg"></p>
               </p>
               <p>
-                3. Memulai Pemrograman
-                <p>Pertama memilih menu File, keumdianpilih Examples, dan kemudian ArduinoISP.</p>
-                <p><img src="img/artikel_1/img_5.jpg"></p>
-                <p>Setelah program ArduinoISP muncul, set Board sebagai berikut:</p>
-                <p><img src="img/artikel_1/img_6.jpg"></p>
-                <p>Catatan: sesuaikan dengan gambar yaa dan jangan lupa set Programmer pada Arduino as ISP. Memilih Port Arduino Uno yg aktif, lalu klik Burning Bootloader untuk membakar kode program ISP.</p>
-                <p><img src="img/artikel_1/img_7.jpg"></p>
-                <p>Catatan: Pilih port yang aktif. Disini port yang aktif adalah COM5.</p>
+                3. Klik Next pada jendela dialog berikut
+                <p><img src="img/artikel_2/img_2.jpg"></p>
               </p>
               <p>
-                4. Rangkaian Uploader Attiny 13A dengan Arduino Uno
-                <p>Rangkailah rangkaian berikut ini:</p>
-                <p><img src="img/artikel_1/img_8.jpg"></p>
+                4. Klik Next untuk meneruskan dan melihat image
+                <p><img src="img/artikel_2/img_3.jpg"></p>
               </p>
               <p>
-                5. Program Attiny 13A dengan LED dan Push Button
-                <p>Buatlah program seperti berikut ini:</p> 
-                <blockquote class="blockquote">
-                  <p class="mb-0">
-                    #define OK 1 //pin push button Up pada attiny
-                  </p>
-                  <p class="mb-0">
-                    #define relay 4 //pin relay pada attiny
-                  </p>
-                  <p class="mb-0">
-                    #define led 0 //pin led pada attiny
-                  </p>
-                  <p class="mb-0">
-                    int a = 0;
-                  </p>
-                  <p class="mb-0">
-                    void setup()
-                  </p>
-                  <p class="mb-0">
-                    {
-                  </p>
-                  <p class="mb-0">
-                     pinMode(OK, INPUT_PULLUP);
-                  </p>
-                  <p class="mb-0">
-                    pinMode(relay, OUTPUT);
-                  </p>
-                  <p class="mb-0">
-                    pinMode(led, OUTPUT);
-                  </p>
-                  <p class="mb-0">
-                    }
-                  </p>
-                  <p class="mb-0">
-                    void loop()
-                  </p>
-                  <p class="mb-0">
-                    {
-                  </p>
-                  <p class="mb-0">
-                    if(digitalRead(OK) == LOW && a==0)
-                  </p>
-                  <p class="mb-0">
-                    {
-                  </p>
-                  <p class="mb-0">
-                    delay(50);
-                  </p>
-                  <p class="mb-0">
-                    while(digitalRead(OK) == LOW){}
-                  </p>
-                  <p class="mb-0">
-                    digitalWrite(relay, HIGH);
-                  </p>
-                  <p class="mb-0">
-                    digitalWrite(led, HIGH);
-                  </p>
-                  <p class="mb-0">
-                    a=1;
-                  </p>
-                  <p class="mb-0">
-                   }
-                  </p>
-                  <p class="mb-0">
-                    else if(digitalRead(OK) == LOW && a ==1)
-                  </p>
-                  <p class="mb-0">
-                    {
-                  </p>
-                  <p class="mb-0">
-                    delay(50);
-                  </p>
-                  <p class="mb-0">
-                    while(digitalRead(OK) == LOW){}
-                  </p>
-                  <p class="mb-0">
-                    digitalWrite(relay, LOW);
-                  </p>
-                  <p class="mb-0">
-                    digitalWrite(led, LOW);
-                  </p>
-                  <p class="mb-0">
-                    a=0;
-                  </p>
-                  <p class="mb-0">
-                    }
-                  </p>
-                  <p class="mb-0">
-                   }
-                  </p>
-                </blockquote>
+                5. Klik Next lagi untuk melakukan kalibrasi kamera
+                <p><img src="img/artikel_2/img_4.jpg"></p>
+              </p>
+              <p>
+                6. Pilih Category dan Preset yg ingin digunakan
+                <p><img src="img/artikel_2/img_5.jpg"></p>
+                <p>Catatan: Category ini mendefinisikan objek apa yg akan diproses.</p>
+                <p><img src="img/artikel_2/img_6.jpg"></p>
+                <p>Catatan: Preset mempengaruhi proses rekontruksi baik cepat ataupun lambat dan tentunya mempengaruhi hasil yg didapat.</p>
              </p>
               <p>
-                Program diatas adalah penggunaan Attiny 13A sebagai pengontrol LED yang dapat dinyalakan dengan Push Button.
+                7. Klik Run pada jendela dialog berikut
+                <p><img src="img/artikel_2/img_7.jpg"></p>
+                <p>Keterangan jumlah kamera, preset, dan kategori muncul pada jendela dialog ini, serta bisa kita edit ulang dengan menekan Back pada jendela dialog.</p>
               </p>
               <p>
-                6. Upload Program
-                <p> Upload program dengan memilih ikon upload seperti pada gambar seperti berikut:</p>
-                <p><img src="img/artikel_1/img_9.JPG"></p>
-                <p> Tunggu proses upload selesai hingga keterangan Done Upload muncul</p>
+                8. Tunggu hingga proses rekontruksi selesai. 
+                <P>
+                  Catatan pada proses ini lumayan lama jika kita memilih preset deep dan banyak jumlah kamera yg terdeteksi. Artinya semakin lama proses 
+                  rekontruksi, hasil yang didapat juga dapat lebih baik, dengan catatan spesifikasi laptop yang digunakan memadai.
+                </P>
               </p>
               <p>
-                7. Rangkian Attiny 13A dengan LED dan Push Button
-                <P>Rangkailah rangkaian berikut:</P>
-                <p><img src="img/artikel_1/img_10.jpg"></p>
-                <p>Hidupkan power arduino dan Attiny 13A sudah bisa digunakan. Catatan: Rangkaian diatas ATtiny 13A hanya mengambil power dari Arduino Uno.</p>
-                <p>Have Fun!!!</p>
+                9. Hasil point cloud dense
+                <p><img src="img/artikel_2/img_8.jpg"></p>
+              </p>
+              <p>
+                10. Padatkan point cloud
+                <p>
+                  Pada Workflow pilih advanced dan kemudian pilih Dense Point seperti pada gambar dibawah ini:
+                </p>
+                <p><img src="img/artikel_2/img_9.jpg"></p>
+                <p>Klik Next</p>
+                <p><img src="img/artikel_2/img_10.jpg"></p>
+              </p>
+              <p>
+                11. Pilih Category dan Preset
+                <p><img src="img/artikel_2/img_11.jpg"></p>
+                <p>Catatan: Pada preset jika memilih High Details maka proses akan semakin lama dan hasilnya akan lebih bagus.</p>
+                <p>kemudian klik Next</p>
+                <p><img src="img/artikel_2/img_12.jpg"></p>
+              </p>
+              <p>
+                12. Klik Run jika dirasa sudah selesai dalam pengaturan
+                <p><img src="img/artikel_2/img_13.jpg"></p>
+                <p>Tunggu proses berjalan</p>
+              </p>
+              <p>
+                13. Hasil pemadatan
+                <p><img src="img/artikel_2/img_14.jpg"></p>
               </p>
             </div>
           </div>
@@ -262,7 +186,20 @@
                   <a href="artikel_1.html">Cara Burning IC attiny 13a dengan Arduino IDE</a>
                 </li>
                 <li>
-                  <a href="https://www.researchgate.net/publication/354392592_A_Comparative_Study_of_Affordable_Photogrammetry_Software_for_Reconstructing_3D_Model_of_a_Human_Foot">A Comparative Study of Affordable Photogrammetry Software for Reconstructing 3D Model of a Human Foot</a>
+                  <a href="https://www.researchgate.net/publication/354392592_A_Comparative_Study_of_Affordable_Photogrammetry_Software_for_Reconstructing_3D_Model_of_a_Human_Foot">
+                    A Comparative Study of Affordable Photogrammetry Software for Reconstructing 3D Model of a Human Foot</a>
+                </li>
+                <li>
+                  <a href="https://ejurnal.itenas.ac.id/index.php/elkomika/article/view/6505">
+                    E-Growth Monitoring System (EGMS) sebagai Upaya Penurunan Prevalensi Stunting</a>
+                </li>
+                <li>
+                  <a href="https://www.researchgate.net/publication/367209190_Human_Activity_Detection_Employing_Full-Type_2D_Blazepose_Estimation_with_LSTM">
+                    Human Activity Detection Employing Full-Type 2D Blazepose Estimation with LSTM</a>
+                </li>
+                <li>
+                  <a href="https://journal.unhas.ac.id/index.php/panritaabdi/article/view/19312">
+                    Implementasi Alat Pemantauan Aktivitas dan Pelacakan Lokasi Jatuh (E-CARE) Untuk Lansia di Daerah Cikutra Kota Bandung</a>
                 </li>
               </ul>
             </div>
@@ -272,13 +209,13 @@
             <div class="sidebar-content">
               <ul>
                 <li>
-                  <a href="#">C++</a>
+                  <a href="#">Software</a>
                 </li>
                 <li>
-                  <a href="#">Mikrokontroller</a>
+                  <a href="#">Image Processing</a>
                 </li>
                 <li>
-                  <a href="#">Control</a>
+                  <a href="#">3D Processing</a>
                 </li>
               </ul>
             </div>
